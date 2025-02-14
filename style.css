@@ -69,7 +69,7 @@ header .icon-cart span{
 	padding: 5px 10px;
 }
 .cartTab{
-	width: 400px;
+	width: 450px;  /* adjust ---------------------------------------------------- */
 	background-color: gray;
 	color: white;
 	position: fixed;
@@ -125,6 +125,13 @@ body.showCart .container{
 	text-align: center;
 	align-items: center;
 }
+.listCart{
+	overflow: auto;
+}
+.listCart .quantity{
+	display: flex;
+	/* justify-content: space-between; */
+}
 .listCart .quantity span{
 	display: inline-block; /* to adjust size, n still stay in same row */
 	width: 25px;
@@ -138,12 +145,17 @@ body.showCart .container{
 	background-color: transparent;
 	color: #eee;
 }
+.listCart .quantity span:nth-child(4){
+	background-color: transparent;
+	/* color: red; */
+}
+.listCart .remove-btn{
+	display: inline-block;
+}
 .listCart .item:nth-child(even){
 	background-color: #eee1;
 }
-.listCart{
-	overflow: auto;
-}
+
 /* .listCart::-webkit-scrollbar{
 	width: 0;
 } */

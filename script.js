@@ -98,7 +98,9 @@ const addCartToHTML = ()=>{
 						<span class="minus"><</span>
 						<span>${cart.quantity}</span>
 						<span class="plus">></span>
+						<span class="remove-btn-span"><button class="remove-btn">remove</button></span>	
 					</div>
+				</div>
 			`;
 			listCartHTML.appendChild(newCart);
 		})
@@ -110,34 +112,34 @@ const addCartToHTML = ()=>{
 
 listCartHTML.addEventListener('click',(event)=>{
 	let positionClick = event.target;
-	if(positionClick.classList.contains('minus') || positionClick.classList.contains('plus')){
+	if(positionClick.classList.contains('minus')){
 		let product_id= positionClick.parentElement.parentElement.dataset.id;
 		//console.log(product_id);
-		let type= 'minus';
-		if(positionClick.classList.contains('plus')){
-			type= 'plus';
-		}
-		changeQuantity(product_id, type);
+		changeQuantity(product_id, 'minus');
+	}
+	else if(positionClick.classList.contains('plus')){
+		let product_id= positionClick.parentElement.parentElement.dataset.id;
+		changeQuantity(product_id, 'plus');
+	}	
+	else if(positionClick.classList.contains('remove-btn')){
+		//console.log('remove button pressed.');
+		let product_id= positionClick.parentElement.parentElement.parentElement.dataset.id;
+		let positionItemInCart = carts.findIndex((value)=> value.product_id==product_id);
+		carts.splice(positionItemInCart, 1);
+		addCartToMemory();
+		addCartToHTML();
 	}
 })
 
 const changeQuantity= (product_id, type)=>{
 	let positionItemInCart = carts.findIndex((value)=> value.product_id==product_id);
 	if(positionItemInCart>=0){
-		switch(type){
-			case 'plus':
-				carts[positionItemInCart].quantity += 1;
-				break;
-			default:
-				let valueChange= carts[positionItemInCart].quantity -1;
-				if(valueChange>0){
-					carts[positionItemInCart].quantity = valueChange;
-				}	
-				else{
-					carts.splice(positionItemInCart, 1);
-				}
-				break;
+		if(type=='plus'){
+			carts[positionItemInCart].quantity += 1;
 		}
+		else if(type=='minus' && carts[positionItemInCart].quantity>1){
+			carts[positionItemInCart].quantity -= 1;
+		}		
 	}
 	addCartToMemory();
 	addCartToHTML();

@@ -102,6 +102,15 @@ body.showCart .container{
 	font-family: Poppins;
 	font-weight: 500;
 	cursor: pointer;
+	padding: 20px; /* added ---- */
+}
+.totalAmount{
+	/* margin: 5px 5px; */
+	padding-left: 10px;
+}
+.itemTypes{
+	/* margin: 5px 5px;	 */
+	padding-left: 10px;
 }
 .cartTab .btn .close{
 	background-color: silver;

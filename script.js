@@ -8,6 +8,10 @@ let listCartHTML = document.querySelector('.listCart');
 let iconCartSpan = document.querySelector('.icon-cart span'); // no of item selected
 let listProducts = [];
 let carts = [];
+//
+let totalAmount= document.querySelector('.totalAmount h3'); // grand total $
+let itemTypes= document.querySelector('.itemTypes p');
+//
 
 iconCart.addEventListener('click',()=>{
 	body.classList.toggle('showCart');
@@ -71,20 +75,25 @@ const addCartToMemory = ()=>{
 const addCartToHTML = ()=>{
 	listCartHTML.innerHTML='';
 	let totalQuantity =0;
+	let xItems=0;
+	let totalAmnt =0;
 	if(carts.length>0){
 		carts.forEach(cart => {
+			let positionProduct = listProducts.findIndex((value)=> value.id==cart.product_id);	
+			let info = listProducts[positionProduct];
 			totalQuantity += cart.quantity;
 			let newCart = document.createElement('div');
 			newCart.classList.add('item');
 			newCart.dataset.id = cart.product_id;
-			let positionProduct = listProducts.findIndex((value)=> value.id==cart.product_id);
-			let info = listProducts[positionProduct];
+			let subTotal = info.price*cart.quantity;
+			xItems += cart.quantity;
+			totalAmnt += subTotal;					
 			newCart.innerHTML=`
 				<div class="image">
 					<img src="${info.image}" alt="">
 				</div>
 				<div class="name">${info.name}</div>
-					<div class="totalPrice">$${info.price*cart.quantity}</div>
+					<div class="totalPrice">$${subTotal}</div>
 					<div class="quantity">
 						<span class="minus"><</span>
 						<span>${cart.quantity}</span>
@@ -95,8 +104,10 @@ const addCartToHTML = ()=>{
 		})
 	}
 	iconCartSpan.innerText = totalQuantity; // innerText(excludes hidden text), textContent
+	totalAmount.textContent =`Total Amount: $${totalAmnt}`;
+	itemTypes.textContent = `${xItems} items selected of ${carts.length} types`;
 }
-// -------------------------------------------------
+
 listCartHTML.addEventListener('click',(event)=>{
 	let positionClick = event.target;
 	if(positionClick.classList.contains('minus') || positionClick.classList.contains('plus')){
@@ -147,4 +158,4 @@ const initApp = ()=>{
 }
 initApp();
 
-// at 26:00
+//

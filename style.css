@@ -1,4 +1,4 @@
-
+/* poppins font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body{
 	margin: 0;
@@ -69,7 +69,7 @@ header .icon-cart span{
 	padding: 5px 10px;
 }
 .cartTab{
-	width: 450px;  /* adjust ---------------------------------------------------- */
+	width: 400px;  /* adjust ---------------------------------------------------- */
 	background-color: gray;
 	color: white;
 	position: fixed;
@@ -120,7 +120,7 @@ body.showCart .container{
 }
 .cartTab .listCart .item{
 	display: grid;
-	grid-template-columns: 70px 150px 50px 1fr;
+	grid-template-columns: 50px 120px 50px 1fr; /* adjust ---------- previous: 70px 150px 50px 1fr */
 	gap: 10px;
 	text-align: center;
 	align-items: center;
@@ -151,6 +151,11 @@ body.showCart .container{
 }
 .listCart .remove-btn{
 	display: inline-block;
+	margin-left: 10px;
+	cursor: pointer;
+	background-color: white;
+	border: none;
+	/*border-radius: 30%;  ----------------------------------------------------- */
 }
 .listCart .item:nth-child(even){
 	background-color: #eee1;

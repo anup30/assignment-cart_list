@@ -87,20 +87,19 @@ const addCartToHTML = ()=>{
 			newCart.dataset.id = cart.product_id;
 			let subTotal = info.price*cart.quantity;
 			xItems += cart.quantity;
-			totalAmnt += subTotal;					
+			totalAmnt += subTotal;
 			newCart.innerHTML=`
 				<div class="image">
 					<img src="${info.image}" alt="">
 				</div>
 				<div class="name">${info.name}</div>
-					<div class="totalPrice">$${subTotal}</div>
-					<div class="quantity">
-						<span class="minus"><</span>
-						<span>${cart.quantity}</span>
-						<span class="plus">></span>
-						<span class="remove-btn-span"><button class="remove-btn">remove</button></span>	
-					</div>
-				</div>
+				<div class="totalPrice">$${subTotal}</div>
+				<div class="quantity">
+					<span class="minus"><</span>
+					<span>${cart.quantity}</span>
+					<span class="plus">></span>
+					<span><button class="remove-btn"> <i class="fa-solid fa-trash" style="color: red;"></i> </button></span>
+				</div>				
 			`;
 			listCartHTML.appendChild(newCart);
 		})

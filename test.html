@@ -8,5 +8,20 @@
 <body>
 	<h1>Hello World</h1>
 	<span><button class="remove-btn">remove</button></span>
+	<br><br><br>
+	<div id="parent" onclick="handleClick(event)">
+		<button>Button 1</button>
+		<span>Some Text</span>
+		<a href="#">Link</a>
+	</div>
+	<script>
+		function handleClick(event) {
+			// event.target is the element that was actually clicked
+			console.log("Clicked element:", event.target.tagName); 
+			console.log("Parent clicked!");
+			// ... your code ...
+		}
+	</script>
 </body>
+
 </html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div id="parent">
+	</div>
+  
+  <script>
+  const parent = document.getElementById('parent');
+  
+  parent.addEventListener('click', function(event) {
+	console.log("Clicked element:", event.target.tagName);
+	console.log("Parent clicked (delegated)!");
+	// ... your code ...
+  });
+  
+  // Example of dynamically adding a button:
+  const newButton = document.createElement('button');
+  newButton.textContent = "New Button";
+  parent.appendChild(newButton);
+  </script>
+</body>
+</html>
+
+<!-- 
+make an onclick event on a parent element also trigger when its children are clicked
+Event Delegation (For Dynamically Added Children)
+-->

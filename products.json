@@ -2,48 +2,56 @@
     {
         "id": 1,
         "name":" LD01 LOUNGE CHAIR",
+		"description": "product 1 description. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
         "price": 200,
         "image": "image/1.png"
     },
     {
         "id": 2,
         "name":" LD02 LOUNGE CHAIR",
+		"description": "product 2 description. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
         "price": 250,
         "image": "image/2.png"
     },
     {
         "id": 3,
         "name":" LD03 LOUNGE CHAIR",
+		"description": "product 3 description. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
         "price": 290,
         "image": "image/3.png"
     },
     {
         "id": 4,
         "name":" LD04 LOUNGE CHAIR",
+		"description": "product 4 description. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
         "price": 200,
         "image": "image/4.png"
     },
     {
         "id": 5,
         "name":" LD05 LOUNGE CHAIR",
+		"description": "product 5 description. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
         "price": 300,
         "image": "image/5.png"
     },
     {
         "id": 6,
         "name":" LD06 LOUNGE CHAIR",
+		"description": "product 6 description. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
         "price": 200,
         "image": "image/6.png"
     },
     {
         "id": 7,
         "name":" LD07 LOUNGE CHAIR",
+		"description": "product 7 description. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
         "price": 200,
         "image": "image/7.png"
     },
     {
         "id": 8,
         "name":" LD08 LOUNGE CHAIR",
+		"description": "product 8 description. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
         "price": 200,
         "image": "image/8.png"
     }

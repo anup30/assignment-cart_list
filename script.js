@@ -1,6 +1,7 @@
 
 let iconCart = document.querySelector('.icon-cart');
 let closeCart = document.querySelector('.close');
+let checkoutCart = document.querySelector('.checkOut');
 let body = document.querySelector('body');
 
 let listProductHTML = document.querySelector('.listProduct');
@@ -21,6 +22,20 @@ closeCart.addEventListener('click',()=>{
 	body.classList.toggle('showCart');
 })
 
+checkoutCart.addEventListener('click',()=>{
+	if(carts.length<=0){
+		alert('cart list is empty. add items to cart please');
+	}
+	else{
+		let khoroch = totalAmount.textContent;
+		carts.length=0; // remove all
+		addCartToMemory();
+		addCartToHTML();
+		body.classList.toggle('showCart');
+		alert(`$${khoroch},\nThanks for shopping with us!`);
+	}
+})
+
 const addDataToHTML = ()=>{
 	listProductHTML.innerHTML='';
 	if(listProducts.length>0){
@@ -33,6 +48,7 @@ const addDataToHTML = ()=>{
 				<h2>${product.name}</h2>
 				<div class="price">$${product.price}</div>
 				<button class="addCart">Add To Cart</button>
+				<div class="description">${product.description}</div>
 			`;
 			listProductHTML.appendChild(newProduct);
 		})
@@ -98,7 +114,7 @@ const addCartToHTML = ()=>{
 					<span class="minus"><</span>
 					<span>${cart.quantity}</span>
 					<span class="plus">></span>
-					<span><button class="remove-btn"> <i class="fa-solid fa-trash" style="color: red;"></i> </button></span>
+					<span class="remove-btn"> <i class="fa-solid fa-trash" style="color: rgb(158, 90, 90);"></i> </span>
 				</div>				
 			`;
 			listCartHTML.appendChild(newCart);
@@ -112,7 +128,7 @@ const addCartToHTML = ()=>{
 listCartHTML.addEventListener('click',(event)=>{
 	let positionClick = event.target;
 	if(positionClick.classList.contains('minus')){
-		let product_id= positionClick.parentElement.parentElement.dataset.id;
+		let product_id= positionClick.parentElement.parentElement.dataset.id; // learn more about dataset.id ---
 		//console.log(product_id);
 		changeQuantity(product_id, 'minus');
 	}
@@ -120,14 +136,22 @@ listCartHTML.addEventListener('click',(event)=>{
 		let product_id= positionClick.parentElement.parentElement.dataset.id;
 		changeQuantity(product_id, 'plus');
 	}	
-	else if(positionClick.classList.contains('remove-btn')){
+	else if(positionClick.classList.contains('remove-btn')){ // can combine remove-btn & fa-trash ? -----
 		//console.log('remove button pressed.');
-		let product_id= positionClick.parentElement.parentElement.parentElement.dataset.id;
+		let product_id= positionClick.parentElement.dataset.id;
 		let positionItemInCart = carts.findIndex((value)=> value.product_id==product_id);
 		carts.splice(positionItemInCart, 1);
 		addCartToMemory();
 		addCartToHTML();
 	}
+	else if(positionClick.classList.contains('fa-trash')){
+		//console.log('remove button pressed.');
+		let product_id= positionClick.parentElement.parentElement.dataset.id;
+		let positionItemInCart = carts.findIndex((value)=> value.product_id==product_id);
+		carts.splice(positionItemInCart, 1);
+		addCartToMemory();
+		addCartToHTML();
+	}	
 })
 
 const changeQuantity= (product_id, type)=>{

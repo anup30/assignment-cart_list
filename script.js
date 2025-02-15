@@ -1,6 +1,7 @@
 
 let iconCart = document.querySelector('.icon-cart');
 let closeCart = document.querySelector('.close');
+let clearCart = document.querySelector('.clearCart');
 let checkoutCart = document.querySelector('.checkOut');
 let body = document.querySelector('body');
 
@@ -20,6 +21,12 @@ iconCart.addEventListener('click',()=>{
 
 closeCart.addEventListener('click',()=>{
 	body.classList.toggle('showCart');
+})
+
+clearCart.addEventListener('click',()=>{
+	carts.length=0; // remove all
+	addCartToMemory();
+	addCartToHTML();
 })
 
 checkoutCart.addEventListener('click',()=>{
@@ -182,5 +189,21 @@ const initApp = ()=>{
 	})
 }
 initApp();
+
+//----------------------------------------------------
+function handleScaling() {
+	const target = document.getElementById("idcartTab");
+	const windowWidth = window.innerWidth;
+	// Apply scale transformation when window is ≤400px
+	if (windowWidth <= 400) {
+		target.style.transform = "scale(0.5)";
+		target.style.transformOrigin = "right top"; //center, right top
+	} else {
+		target.style.transform = "scale(1)";
+	}
+}
+// Add event listeners for resize and initial load
+window.addEventListener("resize", handleScaling);
+window.addEventListener("load", handleScaling);
 
 //

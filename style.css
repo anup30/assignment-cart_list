@@ -72,6 +72,9 @@ header .icon-cart span{
 	font-size: small;
 	padding-top: 10px;
 }
+#idcartTab{
+	transition: transform 0.3s ease; /* Smooth scaling effect */
+}
 .cartTab{
 	width: 400px;  /* adjust ---------------------------------------------------- */
 	background-color: gray;
@@ -98,10 +101,10 @@ body.showCart .container{
 }
 .cartTab .btn{
 	display: grid;
-	grid-template-columns: repeat(2,1fr);
+	grid-template-columns: repeat(3,1fr);
 }
 .cartTab .btn button{
-	background-color: orange;
+	/* background-color: orange; */
 	border: none;
 	font-family: Poppins;
 	font-weight: 500;
@@ -118,6 +121,12 @@ body.showCart .container{
 }
 .cartTab .btn .close{
 	background-color: silver;
+}
+.cartTab .btn .clearCart{
+	background-color: PaleTurquoise;
+}
+.cartTab .btn .checkOut{
+	background-color: MediumTurquoise;
 }
 .cartTab .listCart .item img{
 	width: 100%;	

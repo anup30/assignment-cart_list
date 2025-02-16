@@ -73,6 +73,13 @@ header .icon-cart span{
 	margin-top: 10px;
 	padding: 5px 10px;
 }
+.listProduct .item button:hover{
+	background-color: DarkSlateGray;
+}
+/*the below way by class selecting not working*/
+/* .addCart:hover{	
+	background-color: green;
+} */
 .listProduct .description{
 	font-size: small;
 	padding-top: 10px;

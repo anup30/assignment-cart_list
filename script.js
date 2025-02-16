@@ -128,8 +128,8 @@ const addCartToHTML = ()=>{
 		})
 	}
 	iconCartSpan.innerText = totalQuantity; // innerText(excludes hidden text), textContent
-	totalAmount.textContent =`Total Amount: $${totalAmnt}`;
-	itemTypes.textContent = `${xItems} items selected of ${carts.length} types`;
+	totalAmount.textContent =`Total Price: $${totalAmnt}`;
+	itemTypes.textContent = `Total ${xItems} items selected of ${carts.length} types`;
 }
 
 listCartHTML.addEventListener('click',(event)=>{

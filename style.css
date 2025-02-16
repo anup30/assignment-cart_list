@@ -20,9 +20,14 @@ header{
 	justify-content: space-between;
 	align-items: center;
 	padding: 20px 0;
+	background-color: Azure;
+}
+header .title{
+	margin-left: 20px;
 }
 header .icon-cart{
 	position: relative;
+	margin-right: 20px;
 }
 header .icon-cart span{
 	display: flex;
@@ -126,7 +131,7 @@ body.showCart .container{
 	background-color: PaleTurquoise;
 }
 .cartTab .btn .checkOut{
-	background-color: MediumTurquoise;
+	background-color: rgb(207, 250, 207);
 }
 .cartTab .listCart .item img{
 	width: 100%;	

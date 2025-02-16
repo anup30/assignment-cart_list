@@ -35,11 +35,12 @@ checkoutCart.addEventListener('click',()=>{
 	}
 	else{
 		let khoroch = totalAmount.textContent;
+		let types= itemTypes.textContent;
 		carts.length=0; // remove all
 		addCartToMemory();
 		addCartToHTML();
 		body.classList.toggle('showCart');
-		alert(`$${khoroch},\nThanks for shopping with us!`);
+		alert(`Thank you for shopping with us!\n${khoroch}\n${types}`);
 	}
 })
 
@@ -196,7 +197,9 @@ function handleScaling() {
 	const windowWidth = window.innerWidth;
 	// Apply scale transformation when window is ≤400px
 	if (windowWidth <= 400) {
-		target.style.transform = "scale(0.5)";
+		// target.style.transform = "scale(0.8)";
+		let ratio =0.9*windowWidth/400;
+		target.style.transform = `scale(${ratio})`;
 		target.style.transformOrigin = "right top"; //center, right top
 	} else {
 		target.style.transform = "scale(1)";
